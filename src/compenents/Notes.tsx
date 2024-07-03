@@ -108,7 +108,7 @@ function Notes() {
               <Typography
                 sx={{
                   width: "100%",
-                  color: isDarkMode ? "white" : "white",
+                  color: isDarkMode ? grey[400] : grey[800],
                 }}
               >
                 Here you can save, update, and delete your notes
