@@ -47,106 +47,45 @@ function Notes() {
   const remainingChars = MAX_COUNT - note.length;
 
   return (
-    <Stack p={"16px 24px"} height="100vh" display="flex" flexDirection="column">
+    <Stack p={"16px 24px"} bgcolor={"red"} minHeight={"calc(100svh - 72px)"}>
       <Stack
-        spacing={3}
-        mb={3}
-        alignItems={isMediumScreen ? "center" : "flex-start"}
-        justifyContent="center"
-        textAlign={isMediumScreen ? "center" : "left"}
+        bgcolor={isDarkMode ? grey[600] : grey[100]}
+        maxWidth={"300px"}
+        p="8px 24px"
+        borderRadius="40px"
+        direction="row"
+        justifyContent={"end"}
+        mb={2}
       >
-        {isMediumScreen ? (
-          <>
-            <Stack
-              bgcolor={isDarkMode ? grey[600] : grey[100]}
-              width={isLargeScreen ? "100%" : "80%"}
-              p="8px 24px"
-              borderRadius="40px"
-              direction="row"
-              alignItems="center"
-              mb={2}
-            >
-              <InputBase
-                sx={{
-                  width: "100%",
-                  color: isDarkMode ? grey[100] : grey[800],
-                }}
-                placeholder="Search for a note"
-                inputProps={{ "aria-label": "search for a note" }}
-                endAdornment={
-                  <SearchIcon
-                    sx={{ color: isDarkMode ? grey[100] : grey[800] }}
-                  />
-                }
-              />
-            </Stack>
-            <Stack justifyContent={"center"}>
-              <Typography fontSize={30} fontWeight={400} lineHeight={"120%"}>
-                My notes
-              </Typography>
-              <Typography
-                sx={{
-                  width: "100%",
-                  color: isDarkMode ? grey[100] : grey[900],
-                }}
-              >
-                Here you can save, update, and delete your notes
-              </Typography>
-            </Stack>
-          </>
-        ) : (
-          <Stack
-            direction={"row"}
-            alignItems={"center"}
-            justifyContent={"space-between"}
-            width="100%"
+        <InputBase
+          sx={{
+            width: "100%",
+            color: isDarkMode ? grey[100] : grey[800],
+          }}
+          placeholder="Search for a note"
+          inputProps={{ "aria-label": "search for a note" }}
+          endAdornment={
+            <SearchIcon sx={{ color: isDarkMode ? grey[100] : grey[800] }} />
+          }
+        />
+      </Stack>
+      <Stack>
+        <Stack>
+          <Typography fontSize={30} fontWeight={400} lineHeight={"120%"}>
+            My notes
+          </Typography>
+          <Typography
+            sx={{
+              width: "100%",
+              color: isDarkMode ? grey[400] : grey[800],
+            }}
           >
-            <Stack textAlign="left">
-              <Typography fontSize={30} fontWeight={400} lineHeight={"120%"}>
-                My notes
-              </Typography>
-              <Typography
-                sx={{
-                  width: "100%",
-                  color: isDarkMode ? grey[400] : grey[800],
-                }}
-              >
-                Here you can save, update, and delete your notes
-              </Typography>
-            </Stack>
-            <Stack
-              bgcolor={isDarkMode ? grey[600] : grey[100]}
-              width={isLargeScreen ? "60%" : "400px"} // Adjusted width for large screens
-              p="8px 24px"
-              borderRadius="40px"
-              direction="row"
-              alignItems="center"
-            >
-              <InputBase
-                sx={{
-                  width: "100%",
-                  color: isDarkMode ? grey[100] : grey[800],
-                }}
-                placeholder="Search for a note"
-                inputProps={{ "aria-label": "search for a note" }}
-                endAdornment={
-                  <SearchIcon
-                    sx={{ color: isDarkMode ? grey[100] : grey[800] }}
-                  />
-                }
-              />
-            </Stack>
-          </Stack>
-        )}
+            Here you can save, update, and delete your notes
+          </Typography>
+        </Stack>
       </Stack>
 
-      <Stack
-        direction="row"
-        alignItems="flex-start"
-        gap={2}
-        flexWrap="wrap"
-        justifyContent="center"
-      >
+      <Stack direction="row" justifyContent={"center"} gap={2} flexWrap="wrap">
         <Stack
           borderRadius="8px"
           width="350px"
@@ -198,12 +137,12 @@ function Notes() {
           <Stack
             key={index}
             borderRadius="8px"
+            position={"relative"}
             width="350px"
             height="200px"
             bgcolor={isDarkMode ? grey[700] : grey[200]}
             p="10px 8px"
-            position="relative"
-            order={isLargeScreen && index < 3 ? index + 1 : undefined}
+            justifyContent={isLargeScreen ? "center" : "center"}
           >
             <Typography
               sx={{
